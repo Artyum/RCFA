@@ -1,0 +1,76 @@
+/*
+ * This file is part of RC Flight Assist (RCFA).
+ *
+ * RCFA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * RCFA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Cleanflight.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * Created by Arek "Artyum" Witczak for F3A pattern flying trening
+ * Developed since 2014/08
+ *
+ * Project HomePage: http://www.littlecircuit.com/
+ *
+ */
+
+---------------------------------------------------------------------------------
+
+v1.31
+- Fixed parameter filter=1
+- Added parameter hlowlimit in rcfa.ini
+
+v1.2d
+- Update for GPS command protocol. Compatible with uBlox series 5, 6, 7, M8 and GlobalTop MT3318, MT3329, MT3339.
+- Optimized GPS data capture.
+- Added logging of minimal and maximal number of active sattelites during flight on GPS Logger close. Available at log level 1.
+- Added logging of every active sattelites count while the GPS Logger is running. Available at log level 4.
+- Added log message "GPS module lost" in case of loss connection to the GPS module. Available at log level 4.
+- Slighty increased transmission power of initial signals (configuration, reference position etc.).
+- RCFA RX v1.2d1 - Slightly diversified pitch of tones "too close" (single tone higher pitch) and "too far" (double tone lower pitch)
+
+v1.2c
+- Fixed interference between devices working on different channels.
+- Added delay (1-2 sec) after GPS fix recover to minimize the possibility of getting wrong position.
+- Points P1 and P2 are now saved in the memory in situation when Flight Area is read from rcfa.ini and new Flight Area is set with A and B buttons.
+
+v1.2b
+- Fixed problem with reading data from memory, which in some circumstances, cause the device to reboot.
+- Fixed memory reset function (test=2).
+
+v1.2a
+- The sound "Invalid GPS fix" will be played only during aerobatic flight (when the Flight Area is locked).
+- Fixed corrupted kml output.
+- Fixed saving wrong P1 and P2 coordinates after Area Lock.
+- The "test" parameter in rcfa.ini behaviour upgrade. It is now possible to quickly check the Flight Area specified by parameters p1lat, p1lon, p2lat, p2lon.
+  test=0 - Normal system operation
+  test=1 - Firmware test enabled. If points p1 and p2 are set in rcfa.ini the system will create a kml file regarding given coordinates and other options (dist, angle, refalt etc)
+           If points p1 and p2 are not set, the system will create a test kml file with Flight Area on Mount Everest
+  test=2 - Reset points P1 and P2 in internal system memory.
+- Slower LED initialization status blinking.
+- More debug messages during RX initialization - available through UART.
+- Fixed RX red LED status when txpos=0.
+
+v1.2
+- FHSS implemented.
+- In automatic mode, GPS Logger won't stop/start if airplane crosses far end of Flight Area, prevents creating of a new kml file.
+- "No connection" sound disabled (instead there is silence).
+
+v1.1c
+- Improved SD I/O - fixed problem with corrupted kml files.
+- Added test=2 to reset P1 and P2 in internal memory.
+- Improved Flight Area saving function.
+- Improved firmware check function.
+
+v1.1
+Initial firmware release.
+
+---------------------------------------------------------------------------------
